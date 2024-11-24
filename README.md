@@ -52,10 +52,10 @@ La tabla `productos` incluye las siguientes columnas:
 ### Ejecución
 1. Asegúrate de que la base de datos `inventario.db` haya sido creada correctamente.
 2. Ejecuta el archivo principal `inventario.py`:
-   
-   ```bash
-   python inventario.py
-   ```
+
+```bash
+python inventario.py
+```
 4. Sigue las instrucciones en el menú interactivo.
 
 ---
@@ -82,7 +82,7 @@ Selecciona una opción ingresando el número correspondiente.
 ### Ejemplo de Uso
 #### 1. Agregar un Producto
 Selecciona la opción 1 del menú.
- ```bash
+```bash
 Ingresa los datos solicitados:
 Nombre
 Descripción
@@ -95,7 +95,7 @@ La aplicación confirmará que el producto fue agregado exitosamente.
 #### 2. Generar Reporte de Bajo Stock
 Selecciona la opción 6 del menú.
 
- ```bash
+```bash
 Ingresa el límite de stock.
 ```
 La aplicación mostrará todos los productos con cantidad igual o menor al límite ingresado.
