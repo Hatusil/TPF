@@ -1,118 +1,129 @@
-## Gestión de Inventario - README
+## Paso a Paso para Ejecutar el Código
 
-### Descripción
-Esta es una aplicación desarrollada en **Python** para gestionar el inventario de una pequeña tienda. Permite registrar, actualizar, eliminar y mostrar productos, además de realizar búsquedas y generar reportes de bajo stock. La aplicación utiliza **SQLite** como base de datos y ofrece una interfaz interactiva basada en la línea de comandos.
+### 1. Instalar Python
 
+1. Asegúrate de que tienes Python 3.x instalado en tu sistema.
+
+2. Verifica la instalación ejecutando este comando en tu terminal:
+
+```bash
+python --version
+
+```
+O en algunos sistemas:
+
+```bash
+python3 --version
+
+```
 ---
 
-### Funcionalidades
+### 2. Instalar Dependencias
 
-1. **Agregar producto**: Permite registrar nuevos productos ingresando datos como nombre, descripción, cantidad, precio y categoría.
-2. **Mostrar productos**: Lista todos los productos registrados en el inventario.
-3. **Actualizar cantidad de producto**: Modifica la cantidad disponible de un producto específico utilizando su ID.
-4. **Eliminar producto**: Elimina un producto del inventario a partir de su ID.
-5. **Buscar producto**: Busca productos por ID, nombre o categoría y muestra los resultados coincidentes.
-6. **Reporte de bajo stock**: Genera un informe de productos con cantidad igual o menor a un límite especificado por el usuario.
-7. **Salir**: Finaliza la ejecución del programa.
+1. Asegúrate de tener instalado el paquete colorama, que se utiliza para dar color a los mensajes en la terminal.
 
----
-
-### Dependencias
-
-- **Python** 3.x
-- **Biblioteca** `colorama`
-
-### Instalación de dependencias
-
-Para instalar las dependencias necesarias, ejecuta este comando en tu terminal:
+2. Instálalo ejecutando el siguiente comando:
 
 ```bash
 pip install colorama
+
+```
+```bash
+pip3 install colorama
+
 ```
 ---
 
-## Configuración
+### 3. Crear la Base de Datos
 
-### Creación de la base de datos
-Ejecuta el archivo `crear_db.py` para inicializar la base de datos `inventario.db` y crear la tabla `productos`.
+1. Ejecuta el archivo 'crear_db.py' para inicializar la base de datos 'inventario.db' y crear la tabla productos:
+
+```bash
+python crear_db.py
+
+```
+- Este archivo creará automáticamente una base de datos llamada 'inventario.db' si no existe.
+- Si todo está bien, verás un mensaje: "Base de datos creada exitosamente."
 
 ---
 
-### Estructura de la base de datos
-La tabla `productos` incluye las siguientes columnas:
+### 4. Ejecutar el Programa Principal
 
-- **id**: Identificador único del producto (clave primaria, autoincremental).
-- **nombre**: Nombre del producto (texto, no nulo).
-- **descripcion**: Breve descripción del producto (texto).
-- **cantidad**: Cantidad disponible del producto (entero, no nulo).
-- **precio**: Precio del producto (real, no nulo).
-- **categoria**: Categoría del producto (texto).
----
-
-### Ejecución
-1. Asegúrate de que la base de datos `inventario.db` haya sido creada correctamente.
-2. Ejecuta el archivo principal `inventario.py`:
+1. Ejecuta el archivo 'inventario.py' para iniciar la aplicación
 
 ```bash
 python inventario.py
+
 ```
-4. Sigue las instrucciones en el menú interactivo.
 
----
-### Uso de la aplicación
-
-#### Menú Principal
-Al iniciar la aplicación, se mostrará un menú con las siguientes opciones:
+2. Al iniciar, verás un menú interactivo como este:
 
 ```bash
-   Menú Principal
-   1. Agregar producto
-   2. Mostrar productos
-   3. Actualizar cantidad de producto
-   4. Eliminar producto
-   5. Buscar producto
-   6. Reporte de bajo stock
-   7. Salir
+Menú Principal
+1. Agregar producto
+2. Mostrar productos
+3. Actualizar cantidad de producto
+4. Eliminar producto
+5. Buscar producto
+6. Reporte de bajo stock
+7. Salir
+
 ```
-
-Selecciona una opción ingresando el número correspondiente.
-
 ---
 
-### Ejemplo de Uso
-#### 1. Agregar un Producto
-Selecciona la opción 1 del menú.
-```bash
-Ingresa los datos solicitados:
-Nombre
-Descripción
-Cantidad
-Precio
-Categoría
-```
-La aplicación confirmará que el producto fue agregado exitosamente.
+### 5. Usar el Menú
 
-#### 2. Generar Reporte de Bajo Stock
-Selecciona la opción 6 del menú.
+#### Selecciona una opción ingresando el número correspondiente y presionando Enter.
+Por ejemplo:
 
-```bash
-Ingresa el límite de stock.
-```
-La aplicación mostrará todos los productos con cantidad igual o menor al límite ingresado.
+- Para agregar un producto, selecciona 1 e ingresa los datos solicitados.
+- Para generar un reporte de bajo stock, selecciona 6 e ingresa el límite de stock.
+
+
+### 6. Probar las Funcionalidades
+- Agregar productos: Prueba registrando varios productos para asegurarte de que se almacenan correctamente en la base de datos.
+- Visualizar productos: Selecciona la opción 2 y verifica que los productos se muestren en la tabla.
+- Actualizar cantidad: Usa la opción 3 para modificar la cantidad de un producto específico.
+- Eliminar productos: Selecciona la opción 4 e ingresa el ID del producto que deseas eliminar.
+- Buscar productos: Con la opción 5, realiza búsquedas por ID, nombre o categoría.
+- Generar reportes: Usa la opción 6 para listar productos con bajo stock.
 
 ---
 
-### Recomendaciones
-#### Asegúrate de ingresar datos válidos (por ejemplo, cantidades mayores a 0 y precios reales positivos).
-#### Para evitar errores, sigue las instrucciones de cada funcionalidad.
+### 7. Finalizar
 
+- Cuando termines de usar la aplicación, selecciona la opción 7 para salir:
+
+```bash
+Saliendo del programa.
+
+```
+### 8. (Opcional) Revisar la Base de Datos
+
+#### Si deseas inspeccionar manualmente los datos, puedes usar un visor de SQLite, como:
+
+- DB Browser for SQLite (disponible en sqlitebrowser.org).
+- O puedes abrir la base de datos desde Python usando este comando interactivo:
+
+```bash
+import sqlite3
+conn = sqlite3.connect('inventario.db')
+cursor = conn.cursor()
+cursor.execute("SELECT * FROM productos")
+print(cursor.fetchall())
+conn.close()
+
+```
 ---
 
-### Archivos incluidos
-```bash
-crear_db.py: Crea la base de datos y la tabla productos.
-inventario.py: Archivo principal con las funcionalidades de la aplicación.
-inventario.db: Base de datos SQLite (se genera automáticamente tras ejecutar crear_db.py).
-README.md: Documento de ayuda y guía para la aplicación.
-```
+### Problemas Comunes y Soluciones
+
+1. Error: Módulo no encontrado (ModuleNotFoundError)
+#### Asegúrate de instalar colorama usando pip install colorama.
+2. Base de datos no encontrada
+#### Asegúrate de ejecutar primero crear_db.py para crear la base de datos.
+3. Problemas con permisos
+- Si estás en un sistema operativo con permisos restringidos, ejecuta los comandos como administrador.
+
+#### Si sigues estos pasos, tu aplicación debería ejecutarse sin problemas. ¡Avísame si necesitas ayuda adicional! 😊
 
