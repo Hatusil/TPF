@@ -79,6 +79,7 @@ Por ejemplo:
 - Para agregar un producto, selecciona 1 e ingresa los datos solicitados.
 - Para generar un reporte de bajo stock, selecciona 6 e ingresa el límite de stock.
 
+---
 
 ### 6. Probar las Funcionalidades
 - Agregar productos: Prueba registrando varios productos para asegurarte de que se almacenan correctamente en la base de datos.
@@ -98,6 +99,8 @@ Por ejemplo:
 Saliendo del programa.
 
 ```
+---
+
 ### 8. (Opcional) Revisar la Base de Datos
 
 #### Si deseas inspeccionar manualmente los datos, puedes usar un visor de SQLite, como:
@@ -119,9 +122,9 @@ conn.close()
 ### Problemas Comunes y Soluciones
 
 1. Error: Módulo no encontrado (ModuleNotFoundError)
-#### Asegúrate de instalar colorama usando pip install colorama.
+- Asegúrate de instalar colorama usando pip install colorama.
 2. Base de datos no encontrada
-#### Asegúrate de ejecutar primero crear_db.py para crear la base de datos.
+- Asegúrate de ejecutar primero crear_db.py para crear la base de datos.
 3. Problemas con permisos
 - Si estás en un sistema operativo con permisos restringidos, ejecuta los comandos como administrador.
 
