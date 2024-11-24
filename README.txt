@@ -1,11 +1,11 @@
-# Gestión de Inventario - README
+## Gestión de Inventario - README
 
-## Descripción
+### Descripción
 Esta es una aplicación desarrollada en **Python** para gestionar el inventario de una pequeña tienda. Permite registrar, actualizar, eliminar y mostrar productos, además de realizar búsquedas y generar reportes de bajo stock. La aplicación utiliza **SQLite** como base de datos y ofrece una interfaz interactiva basada en la línea de comandos.
 
 ---
 
-## Funcionalidades
+### Funcionalidades
 
 1. **Agregar producto**: Permite registrar nuevos productos ingresando datos como nombre, descripción, cantidad, precio y categoría.
 2. **Mostrar productos**: Lista todos los productos registrados en el inventario.
@@ -17,7 +17,7 @@ Esta es una aplicación desarrollada en **Python** para gestionar el inventario 
 
 ---
 
-## Requisitos
+### Requisitos
 
 ### Dependencias
 
